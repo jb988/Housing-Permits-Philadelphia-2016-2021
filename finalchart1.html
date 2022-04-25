@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script src= "Neighborhoods2021%20(2).js"></script>
+    <script src= "Neighborhoods2020.js"></script>
+    <script src= "Neighborhoods2019.js"></script>
+    <script src= "Neighborhoods2018.js"></script>
+    <script src= "Neighborhoods2017.js"></script>
+    <script src= "Neighborhoods2016.js"></script>
+    <script src= "Neighborhoods_Philadelphia.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Permit Number');
+        data.addRows([
+          ['2021', 5007],
+          ['2020', 3911],
+          ['2019', 3407],
+          ['2018', 2225],
+          ['2017', 1767],
+            ['2016',1650]
+        ]);
+
+        // Set chart options
+        var options = {'title':'Count of Permits per Year ',
+                       'width':400,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
